@@ -68,16 +68,16 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             className="hidden lg:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 hover:border-orange-500/30 transition-all"
-            href="https://wa.me/6281299005452?text=Halo%20KuyKilat,%20saya%20butuh%20bantuan%20CS"
+            href="https://wa.me/6282311434969?text=Halo%20KuyKilat,%20saya%20butuh%20bantuan%20CS"
             target="_blank"
             rel="noopener noreferrer"
           >
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="font-mono text-xs font-medium">CS 24/7 • 0812-9900-KILAT</span>
+            <span className="font-mono text-xs font-medium">CS 24/7 • 0823-1143-4969</span>
           </a>
           <a
             className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-orange-500 text-white text-sm font-semibold shadow-sm hover:bg-orange-600 transition-all active:scale-[0.98] border border-transparent gap-1.5"
-            href="https://wa.me/6281299005452?text=Halo%20KuyKilat,%20saya%20mau%20order%20pengiriman%20sekarang"
+            href="https://wa.me/6282311434969?text=Halo%20KuyKilat,%20saya%20mau%20order%20pengiriman%20sekarang"
             target="_blank"
             rel="noopener noreferrer"
           >
