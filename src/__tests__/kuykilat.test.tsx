@@ -1,7 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { Header } from '@/components/kuykilat/Header';
 import { PriceCalculator } from '@/components/kuykilat/PriceCalculator';
+
+vi.mock('next/navigation', () => ({
+  useRouter: () => ({
+    replace: vi.fn(),
+    push: vi.fn(),
+  }),
+  useSearchParams: () => ({
+    get: (key: string) => null,
+    toString: () => '',
+  }),
+}));
 
 describe('KuyKilat Public Web Profile', () => {
   it('renders Header with brand and navigation', () => {

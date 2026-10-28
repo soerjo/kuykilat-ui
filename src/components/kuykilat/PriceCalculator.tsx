@@ -1,16 +1,36 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Calculator, Zap } from 'lucide-react';
 
 type ServiceType = 'barang' | 'katering' | 'pindahan';
 
-export function PriceCalculator() {
-  const [service, setService] = useState<ServiceType>('barang');
-  const [distance, setDistance] = useState<number>(12);
-  const [weight, setWeight] = useState<number>(20);
+interface PriceCalculatorProps {
+  initialService?: ServiceType;
+  initialDistance?: number;
+}
+
+export function PriceCalculator({ initialService, initialDistance }: PriceCalculatorProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const urlLayanan = (searchParams.get('layanan') as ServiceType) || initialService || 'barang';
+  const urlJarak = searchParams.get('jarak') ? parseInt(searchParams.get('jarak')!, 10) : (initialDistance || 12);
+
+  const [service, setService] = useState<ServiceType>(urlLayanan);
+  const [distance, setDistance] = useState<number>(urlJarak);
+  const [weight, setWeight] = useState<number>(urlLayanan === 'katering' ? 60 : urlLayanan === 'pindahan' ? 90 : 20);
   const [helper, setHelper] = useState<boolean>(false);
   const [insurance, setInsurance] = useState<boolean>(true);
+
+  const syncUrl = (newService: ServiceType, newDistance: number) => {
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    newSearchParams.set('layanan', newService);
+    newSearchParams.set('jarak', newDistance.toString());
+    const qs = newSearchParams.toString();
+    router.replace(qs ? `/?${qs}#kalkulator` : '/#kalkulator', { scroll: false });
+  };
 
   const handleServiceChange = (newService: ServiceType) => {
     setService(newService);
@@ -21,6 +41,12 @@ export function PriceCalculator() {
     } else {
       setWeight(15);
     }
+    syncUrl(newService, distance);
+  };
+
+  const handleDistanceChange = (newDistance: number) => {
+    setDistance(newDistance);
+    syncUrl(service, newDistance);
   };
 
   const calculation = useMemo(() => {
@@ -141,7 +167,7 @@ export function PriceCalculator() {
                   min={1}
                   type="range"
                   value={distance}
-                  onChange={(e) => setDistance(parseInt(e.target.value, 10))}
+                  onChange={(e) => handleDistanceChange(parseInt(e.target.value, 10))}
                 />
                 <div className="flex justify-between text-slate-500 text-xs">
                   <span>1 km (Dekat)</span>
