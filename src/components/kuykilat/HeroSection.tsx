@@ -1,29 +1,42 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ArrowRight, MessageCircle, Truck, Search } from 'lucide-react';
 import { CountUp } from '@/components/react-bits/CountUp';
 
-export function HeroSection() {
-  const [resi, setResi] = useState('');
-  const [activeTracking, setActiveTracking] = useState(false);
-  const [trackedResi, setTrackedResi] = useState('');
+interface HeroSectionProps {
+  initialResi?: string;
+}
+
+export function HeroSection({ initialResi }: HeroSectionProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const urlResi = searchParams.get('resi') || initialResi || '';
+  const [resi, setResi] = useState(urlResi);
+  const [activeTracking, setActiveTracking] = useState(Boolean(urlResi));
+  const [trackedResi, setTrackedResi] = useState(urlResi ? urlResi.toUpperCase() : '');
 
   const handleTrack = (e: React.FormEvent) => {
     e.preventDefault();
     const targetResi = resi.trim() || 'KK-889021';
-    setTrackedResi(targetResi.toUpperCase());
+    const normalizedResi = targetResi.toUpperCase();
+    setTrackedResi(normalizedResi);
     setActiveTracking(true);
+
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+    newSearchParams.set('resi', normalizedResi);
+    const qs = newSearchParams.toString();
+    router.replace(qs ? `/?${qs}` : '/', { scroll: false });
   };
 
   return (
     <section className="relative w-full overflow-hidden bg-slate-50 py-12 md:py-20 lg:py-24">
-      {/* Background Aurora / Glow */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-tr from-orange-500/15 via-orange-300/20 to-emerald-400/10 blur-[130px] rounded-full"></div>
       <div className="pointer-events-none absolute top-1/3 -right-40 w-[450px] h-[450px] bg-orange-500/10 blur-[110px] rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 relative z-10">
-        {/* Hero Top Content */}
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-10 md:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
@@ -60,7 +73,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Resi Tracking Dock */}
         <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md border border-slate-200 p-3 sm:p-4 mb-12">
           <form onSubmit={handleTrack} className="flex flex-col md:flex-row gap-3 items-center">
             <div className="flex-1 w-full flex items-center gap-3 bg-slate-100/80 rounded-lg px-4 h-12 border border-transparent focus-within:border-orange-500 transition-colors">
@@ -82,7 +94,6 @@ export function HeroSection() {
             </button>
           </form>
 
-          {/* Real-time Tracking Box (Accordion / Result) */}
           {activeTracking && (
             <div className="mt-4 pt-4 border-t border-slate-200 bg-blue-50/60 rounded-lg p-4 transition-all">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
@@ -121,7 +132,6 @@ export function HeroSection() {
           )}
         </div>
 
-        {/* Live Counters (React Bits CountUp) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
           <div className="bg-white rounded-xl p-5 shadow-sm border border-slate-200 flex flex-col items-center text-center">
             <span className="text-3xl font-bold text-slate-900 tracking-tight mb-1">
