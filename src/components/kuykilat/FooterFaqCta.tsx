@@ -95,7 +95,7 @@ export function CtaBanner() {
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
           <a
             className="w-full sm:w-auto px-8 py-4 rounded-lg bg-orange-500 text-white font-semibold shadow-md hover:bg-orange-600 transition-all flex items-center justify-center gap-2"
-            href="https://wa.me/6281299005452?text=Halo%20KuyKilat,%20saya%20mau%20order%20pengiriman%20sekarang"
+            href="https://wa.me/6282311434969?text=Halo%20KuyKilat,%20saya%20mau%20order%20pengiriman%20sekarang"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -161,7 +161,7 @@ export function Footer() {
           <ul className="flex flex-col gap-2.5 text-xs">
             <li className="flex items-center gap-2">
               <PhoneCall className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span className="font-mono">0812-9900-5452 (WhatsApp)</span>
+              <span className="font-mono">0823-1143-4969 (WhatsApp)</span>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 text-orange-500 shrink-0" />

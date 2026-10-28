@@ -116,7 +116,7 @@ export function FleetSection() {
                       ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-sm'
                       : 'bg-slate-100 text-slate-800 hover:bg-orange-500 hover:text-white border border-slate-200 hover:border-transparent')
                   }
-                  href={'https://wa.me/6281299005452?text=' + encodeURIComponent(f.waText)}
+                  href={'https://wa.me/6282311434969?text=' + encodeURIComponent(f.waText)}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

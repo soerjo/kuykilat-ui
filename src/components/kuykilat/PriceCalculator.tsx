@@ -96,7 +96,7 @@ export function PriceCalculator({ initialService, initialDistance }: PriceCalcul
     };
   }, [service, distance, weight, helper, insurance]);
 
-  const waLink = 'https://wa.me/6281299005452?text=' + encodeURIComponent(
+  const waLink = 'https://wa.me/6282311434969?text=' + encodeURIComponent(
     'Halo KuyKilat, saya ingin pesan layanan ' + service + ' jarak ' + distance + 'km estimasi Rp ' + calculation.total.toLocaleString('id-ID')
   );
 

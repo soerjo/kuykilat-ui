@@ -63,7 +63,7 @@ export function HeroSection({ initialResi }: HeroSectionProps) {
             </a>
             <a
               className="h-12 px-6 rounded-lg bg-white text-slate-800 text-base font-semibold shadow-sm border border-slate-200 hover:bg-slate-50 transition-all inline-flex items-center justify-center gap-2"
-              href="https://wa.me/6281299005452?text=Halo%20KuyKilat,%20saya%20butuh%20pengiriman%20sekarang"
+              href="https://wa.me/6282311434969?text=Halo%20KuyKilat,%20saya%20butuh%20pengiriman%20sekarang"
               target="_blank"
               rel="noopener noreferrer"
             >

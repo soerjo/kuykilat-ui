@@ -99,7 +99,7 @@ export function ServicesBento() {
             <div className="relative z-10 pt-4 mt-auto border-t border-slate-200">
               <a
                 className="text-sm font-semibold text-orange-600 flex items-center gap-1.5 group-hover:gap-2.5 transition-all"
-                href="https://wa.me/6281299005452?text=Halo%20KuyKilat,%20saya%20mau%20booking%20pengiriman%20katering"
+                href="https://wa.me/6282311434969?text=Halo%20KuyKilat,%20saya%20mau%20booking%20pengiriman%20katering"
                 target="_blank"
                 rel="noopener noreferrer"
               >
