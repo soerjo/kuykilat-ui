@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ShieldCheck, Users, Headphones } from 'lucide-react';
+import { ShieldCheck, Users, Headphones, Clock } from 'lucide-react';
 
 export function FeaturesTelemetry() {
   return (
@@ -67,12 +67,12 @@ export function FeaturesTelemetry() {
             <div className="flex flex-col gap-6">
               <div className="flex gap-4">
                 <div className="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
-                  <ShieldCheck className="w-6 h-6" />
+                  <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Klaim Asuransi Tanpa Berbelit</h4>
+                  <h4 className="text-lg font-bold text-slate-900 mb-1">Armada Standby Cepat & Garansi Tepat Waktu</h4>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Setiap barang yang dikirim terlindungi proteksi asuransi hingga Rp 100 Juta. Penggantian cepat dalam 1x24 jam tanpa birokrasi rumit.
+                    Truk dan pikap siap berangkat dalam hitungan menit setelah order dikonfirmasi. Jadwal penjemputan maupun distribusi bisnis dijamin presisi tanpa molor.
                   </p>
                 </div>
               </div>
